@@ -1,3 +1,5 @@
+const url = require('url')
+
 const formUrlEncodedBody = (params) => {
   var formBody = []
 
@@ -14,7 +16,10 @@ const formUrlEncodedBody = (params) => {
 
 const toBase64 = (s) => (Buffer.from(s).toString("base64"))
 
+const getQueryFromUrl = (reqUrl) => url.parse(reqUrl, true).query
+
 module.exports = {
   formUrlEncodedBody,
   toBase64,
+  getQueryFromUrl,
 }
